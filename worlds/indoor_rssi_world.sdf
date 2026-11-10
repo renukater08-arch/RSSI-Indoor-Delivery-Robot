@@ -1,0 +1,242 @@
+
+<?xml version="1.0" ?>
+<sdf version="1.7">
+  <world name="indoor_rssi_world">
+
+    <!-- Lighting -->
+    <light name="sun" type="directional">
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <!-- Indoor Room -->
+    <model name="indoor_room">
+      <static>true</static>
+
+      <!-- Floor: 10m x 8m -->
+      <link name="floor">
+        <pose>0 0 -0.1 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>10 8 0.2</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>10 8 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.75 0.75 0.75 1</ambient>
+            <diffuse>0.75 0.75 0.75 1</diffuse>
+          </material>
+        </visual>
+      </link>
+
+      <!-- North Wall -->
+      <link name="north_wall">
+        <pose>0 4.1 1.25 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box><size>10.4 0.2 2.5</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>10.4 0.2 2.5</size></box>
+          </geometry>
+          <material>
+            <ambient>0.7 0.7 0.7 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+          </material>
+        </visual>
+      </link>
+
+      <!-- South Wall - Left Section -->
+      <link name="south_wall_left">
+        <pose>-2.8 -4.1 1.25 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box><size>4.4 0.2 2.5</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>4.4 0.2 2.5</size></box>
+          </geometry>
+          <material>
+            <ambient>0.7 0.7 0.7 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+          </material>
+        </visual>
+      </link>
+
+      <!-- South Wall - Right Section -->
+      <link name="south_wall_right">
+        <pose>2.8 -4.1 1.25 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box><size>4.4 0.2 2.5</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>4.4 0.2 2.5</size></box>
+          </geometry>
+          <material>
+            <ambient>0.7 0.7 0.7 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+          </material>
+        </visual>
+      </link>
+
+      <!-- East Wall -->
+      <link name="east_wall">
+        <pose>5.1 0 1.25 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box><size>0.2 8.4 2.5</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>0.2 8.4 2.5</size></box>
+          </geometry>
+          <material>
+            <ambient>0.7 0.7 0.7 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+          </material>
+        </visual>
+      </link>
+
+      <!-- West Wall -->
+      <link name="west_wall">
+        <pose>-5.1 0 1.25 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box><size>0.2 8.4 2.5</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>0.2 8.4 2.5</size></box>
+          </geometry>
+          <material>
+            <ambient>0.7 0.7 0.7 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+          </material>
+        </visual>
+      </link>
+
+      <!-- Obstacle 1: Central rectangular block -->
+      <link name="obstacle_1">
+        <pose>0 0 0.5 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box><size>1.2 0.8 1.0</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>1.2 0.8 1.0</size></box>
+          </geometry>
+          <material>
+            <ambient>0.7 0.3 0.1 1</ambient>
+            <diffuse>0.7 0.3 0.1 1</diffuse>
+          </material>
+        </visual>
+      </link>
+
+      <!-- Obstacle 2: Side rectangular block -->
+      <link name="obstacle_2">
+        <pose>-1.8 1.2 0.4 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box><size>0.8 0.8 0.8</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>0.8 0.8 0.8</size></box>
+          </geometry>
+          <material>
+            <ambient>0.2 0.4 0.8 1</ambient>
+            <diffuse>0.2 0.4 0.8 1</diffuse>
+          </material>
+        </visual>
+      </link>
+
+      <!-- Obstacle 3: Cylindrical pillar -->
+      <link name="obstacle_3">
+        <pose>1.7 -1.5 0.6 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.25</radius>
+              <length>1.2</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.25</radius>
+              <length>1.2</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.2 0.7 0.3 1</ambient>
+            <diffuse>0.2 0.7 0.3 1</diffuse>
+          </material>
+        </visual>
+      </link>
+
+    </model>
+
+    <!-- Robot Starting Marker (Green) -->
+    <model name="robot_start_marker">
+      <static>true</static>
+      <pose>-3 -2 0.15 0 0 0</pose>
+      <link name="marker">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.25</radius>
+              <length>0.3</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.1 0.9 0.1 1</ambient>
+            <diffuse>0.1 0.9 0.1 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Wi-Fi Beacon Marker (Red) -->
+    <model name="wifi_beacon_marker">
+      <static>true</static>
+      <pose>3 2 1 0 0 0</pose>
+      <link name="marker">
+        <visual name="visual">
+          <geometry>
+            <sphere>
+              <radius>0.2</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <ambient>0.9 0.1 0.1 1</ambient>
+            <diffuse>0.9 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+  </world>
+</sdf>
+
